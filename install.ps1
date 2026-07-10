@@ -15,7 +15,7 @@ cd $Path
 Write-Host creating venv
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r $cwd\requirements.txt
-npm install --prefix
+npm install
 # .\.venv\Scripts\python.exe -m graphrag init
 rm package.json
 cd $cwd
