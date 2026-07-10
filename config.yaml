@@ -1,0 +1,15 @@
+# MCP stdio-to-HTTP bridge configuration
+# All fields can be overridden via CLI flags:
+#   python mcp_stdio_to_http.py [--command CMD] [--port N] [--host ADDR] [-- args...]
+
+# Command to run the stdio MCP server
+command: npx 
+
+# HTTP server settings
+host: 127.0.0.1
+port: 8767
+
+# Arguments passed directly to the stdio server process
+args:
+  - "any-cli-mcp-server"
+  - "___venv_Scripts_python_exe_-m_graphrag_cache.json"  

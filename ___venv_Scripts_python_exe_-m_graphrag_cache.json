@@ -1,0 +1,325 @@
+{  
+  "command": "graphrag_startup.ps1",  
+  "timestamp": 1720584000000,  
+  "data": {  
+    "name": "graphrag",  
+    "description": "GraphRAG: A graph-based retrieval-augmented generation (RAG) system.",  
+    "subcommands": [  
+      {  
+        "name": "init",  
+        "description": "Generate a default configuration file.",  
+        "subcommands": [],  
+        "options": [  
+          {  
+            "name": "--root",  
+            "shortName": "-r",  
+            "description": "The project root directory. [default: server working dir]",  
+            "valueRequired": true,  
+            "valueName": "DIRECTORY"  
+          },  
+          {  
+            "name": "--model",  
+            "shortName": "-m",  
+            "description": "[default: gpt-4.1]",  
+            "valueRequired": true,  
+            "valueName": "TEXT"  
+          },  
+          {  
+            "name": "--embedding",  
+            "shortName": "-e",  
+            "description": "[default: text-embedding-3-large]",  
+            "valueRequired": true,  
+            "valueName": "TEXT"  
+          },  
+          {  
+            "name": "--force",  
+            "shortName": "-f",  
+            "description": "Force initialization even if the project already exists.",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--help",  
+            "description": "Show this message and exit.",  
+            "valueRequired": false  
+          }  
+        ],  
+        "arguments": []  
+      },  
+      {  
+        "name": "index",  
+        "description": "Build a knowledge graph index.",  
+        "subcommands": [],  
+        "options": [  
+          {  
+            "name": "--root",  
+            "shortName": "-r",  
+            "description": "The project root directory. [default: server working dir]",  
+            "valueRequired": true,  
+            "valueName": "DIRECTORY"  
+          },  
+          {  
+            "name": "--method",  
+            "shortName": "-m",  
+            "description": "The indexing method to use. [default: standard]",  
+            "valueRequired": true,  
+            "valueName": "METHOD"  
+          },  
+          {  
+            "name": "--verbose",  
+            "shortName": "-v",  
+            "description": "Run the indexing pipeline with verbose logging",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--dry-run",  
+            "description": "Run the indexing pipeline without executing any steps to inspect and validate the configuration.",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--cache",  
+            "description": "Use LLM cache. [default: cache]",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--skip-validation",  
+            "description": "Skip any preflight validation. Useful when running no LLM steps.",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--help",  
+            "description": "Show this message and exit.",  
+            "valueRequired": false  
+          }  
+        ],  
+        "arguments": []  
+      },  
+      {  
+        "name": "update",  
+        "description": "Update an existing knowledge graph index. Applies a default output configuration (if not provided by config), saving the new index to the local file system in the `update_output` folder.",  
+        "subcommands": [],  
+        "options": [  
+          {  
+            "name": "--root",  
+            "shortName": "-r",  
+            "description": "The project root directory. [default: server working dir]",  
+            "valueRequired": true,  
+            "valueName": "DIRECTORY"  
+          },  
+          {  
+            "name": "--method",  
+            "shortName": "-m",  
+            "description": "The indexing method to use. [default: standard]",  
+            "valueRequired": true,  
+            "valueName": "METHOD"  
+          },  
+          {  
+            "name": "--verbose",  
+            "shortName": "-v",  
+            "description": "Run the indexing pipeline with verbose logging.",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--cache",  
+            "description": "Use LLM cache. [default: cache]",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--skip-validation",  
+            "description": "Skip any preflight validation. Useful when running no LLM steps.",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--help",  
+            "description": "Show this message and exit.",  
+            "valueRequired": false  
+          }  
+        ],  
+        "arguments": []  
+      },  
+      {  
+        "name": "prompt-tune",  
+        "description": "Generate custom graphrag prompts with your own data (i.e. auto templating).",  
+        "subcommands": [],  
+        "options": [  
+          {  
+            "name": "--root",  
+            "shortName": "-r",  
+            "description": "The project root directory. [default: server working dir]",  
+            "valueRequired": true,  
+            "valueName": "DIRECTORY"  
+          },  
+          {  
+            "name": "--verbose",  
+            "shortName": "-v",  
+            "description": "Run the prompt tuning pipeline with verbose logging.",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--domain",  
+            "description": "The domain your input data is related to. For example 'space science', 'microbiology', 'environmental news'. If not defined, a domain will be inferred from the input data.",  
+            "valueRequired": true,  
+            "valueName": "TEXT"  
+          },  
+          {  
+            "name": "--selection-method",  
+            "description": "The text chunk selection method. [default: random]",  
+            "valueRequired": true,  
+            "valueName": "METHOD"  
+          },  
+          {  
+            "name": "--n-subset-max",  
+            "description": "The number of text chunks to embed when --selection-method=auto. [default: 300]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--k",  
+            "description": "The maximum number of documents to select from each centroid when --selection-method=auto. [default: 15]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--limit",  
+            "description": "The number of documents to load when --selection-method={random|top}. [default: 15]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--max-tokens",  
+            "description": "The max token count for prompt generation. [default: 2000]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--min-examples-required",  
+            "description": "The minimum number of examples to generate/include in the entity extraction prompt. [default: 2]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--chunk-size",  
+            "description": "The size of each example text chunk. Overrides chunking.size in the configuration file. [default: 1200]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--overlap",  
+            "description": "The overlap size for chunking documents. Overrides chunking.overlap in the configuration file. [default: 100]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--language",  
+            "description": "The primary language used for inputs and outputs in graphrag prompts.",  
+            "valueRequired": true,  
+            "valueName": "TEXT"  
+          },  
+          {  
+            "name": "--discover-entity-types",  
+            "description": "Discover and extract unspecified entity types. [default: discover-entity-types]",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--output",  
+            "shortName": "-o",  
+            "description": "The directory to save prompts to, relative to the project root directory. [default: prompts]",  
+            "valueRequired": true,  
+            "valueName": "PATH"  
+          },  
+          {  
+            "name": "--help",  
+            "description": "Show this message and exit.",  
+            "valueRequired": false  
+          }  
+        ],  
+        "arguments": []  
+      },  
+      {  
+        "name": "query",  
+        "description": "Query a knowledge graph index.",  
+        "subcommands": [],  
+        "options": [  
+          {  
+            "name": "--root",  
+            "shortName": "-r",  
+            "description": "The project root directory. [default: server working dir]",  
+            "valueRequired": true,  
+            "valueName": "DIRECTORY"  
+          },  
+          {  
+            "name": "--method",  
+            "shortName": "-m",  
+            "description": "The query algorithm to use. [default: global]",  
+            "valueRequired": true,  
+            "valueName": "METHOD"  
+          },  
+          {  
+            "name": "--verbose",  
+            "shortName": "-v",  
+            "description": "Run the query with verbose logging.",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--data",  
+            "shortName": "-d",  
+            "description": "Index output directory (contains the parquet files).",  
+            "valueRequired": true,  
+            "valueName": "PATH"  
+          },  
+          {  
+            "name": "--community-level",  
+            "description": "Leiden hierarchy level from which to load community reports. Higher values represent smaller communities. [default: 2]",  
+            "valueRequired": true,  
+            "valueName": "INTEGER"  
+          },  
+          {  
+            "name": "--dynamic-community-selection",  
+            "description": "Use global search with dynamic community selection. [default: no-dynamic-selection]",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--response-type",  
+            "description": "Free-form description of the desired response format (e.g. 'Single Sentence', 'List of 3-7 Points', etc.). [default: Multiple Paragraphs]",  
+            "valueRequired": true,  
+            "valueName": "TEXT"  
+          },  
+          {  
+            "name": "--streaming",  
+            "description": "Print the response in a streaming manner. [default: no-streaming]",  
+            "valueRequired": false  
+          },  
+          {  
+            "name": "--help",  
+            "description": "Show this message and exit.",  
+            "valueRequired": false  
+          }  
+        ],  
+        "arguments": [  
+          {  
+            "name": "query",  
+            "description": "The query to execute.",  
+            "required": true  
+          }  
+        ]  
+      }  
+    ],  
+    "options": [  
+      {  
+        "name": "--install-completion",  
+        "description": "Install completion for the current shell.",  
+        "valueRequired": false  
+      },  
+      {  
+        "name": "--show-completion",  
+        "description": "Show completion for the current shell, to copy it or customize the installation.",  
+        "valueRequired": false  
+      },  
+      {  
+        "name": "--help",  
+        "description": "Show this message and exit.",  
+        "valueRequired": false  
+      }  
+    ],  
+    "arguments": []  
+  }  
+}
