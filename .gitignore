@@ -1,5 +1,9 @@
+cache*
 /node_modules
 /.venv
 /__pycache__
 /input
 /output
+/prompts
+logs*
+.env
