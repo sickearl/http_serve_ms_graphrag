@@ -10,7 +10,8 @@ cp graphrag_startup.ps1 $Path\graphrag_startup.ps1
 cp 'http serve.ps1' $Path\'http serve.ps1'
 cp .\.env.default $Path\.env
 cp package.json $Path\package.json
-
+cp mcp_stdio_to_http.py $Path\mcp_stdio_to_http.py
+mkdir $Path\input
 cd $Path
 Write-Host creating venv
 python -m venv .venv
