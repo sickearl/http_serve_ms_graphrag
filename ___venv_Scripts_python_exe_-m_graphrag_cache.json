@@ -4,47 +4,7 @@
   "data": {  
     "name": "graphrag",  
     "description": "GraphRAG: A graph-based retrieval-augmented generation (RAG) system.",  
-    "subcommands": [  
-      {  
-        "name": "init",  
-        "description": "Generate a default configuration file.",  
-        "subcommands": [],  
-        "options": [  
-          {  
-            "name": "--root",  
-            "shortName": "-r",  
-            "description": "The project root directory. [default: server working dir]",  
-            "valueRequired": true,  
-            "valueName": "DIRECTORY"  
-          },  
-          {  
-            "name": "--model",  
-            "shortName": "-m",  
-            "description": "[default: gpt-4.1]",  
-            "valueRequired": true,  
-            "valueName": "TEXT"  
-          },  
-          {  
-            "name": "--embedding",  
-            "shortName": "-e",  
-            "description": "[default: text-embedding-3-large]",  
-            "valueRequired": true,  
-            "valueName": "TEXT"  
-          },  
-          {  
-            "name": "--force",  
-            "shortName": "-f",  
-            "description": "Force initialization even if the project already exists.",  
-            "valueRequired": false  
-          },  
-          {  
-            "name": "--help",  
-            "description": "Show this message and exit.",  
-            "valueRequired": false  
-          }  
-        ],  
-        "arguments": []  
-      },  
+    "subcommands": [         
       {  
         "name": "index",  
         "description": "Build a knowledge graph index.",  
