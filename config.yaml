@@ -5,11 +5,12 @@
 # Command to run the stdio MCP server
 command: npx 
 
+# Arguments passed directly to the stdio server process
+args:
+  - "any-cli-mcp-server"
+  - "graphrag_cache"  
+  
 # HTTP server settings
 host: 127.0.0.1
 port: 8767
 
-# Arguments passed directly to the stdio server process
-args:
-  - "any-cli-mcp-server"
-  - "___venv_Scripts_python_exe_-m_graphrag_cache.json"  
