@@ -14,7 +14,7 @@ CWD=$(pwd)
 
 # Copia dei file (gestendo anche gli spazi e i backslash convertiti in slash)
 cp ./config.yaml "$PATH_DEST/config.yaml"
-cp ___venv_Scripts_python_exe_-m_graphrag_cache.json "$PATH_DEST/___venv_Scripts_python_exe_-m_graphrag_cache.json"
+cp graphrag_cache.json "$PATH_DEST/graphrag_cache.json"
 cp graphrag_startup.ps1 "$PATH_DEST/graphrag_startup.ps1"
 cp 'http serve.ps1' "$PATH_DEST/http serve.ps1"
 cp ./.env.default "$PATH_DEST/.env"
